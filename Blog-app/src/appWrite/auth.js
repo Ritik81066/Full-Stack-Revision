@@ -23,8 +23,8 @@ export class AuthService{
     }
 
 
-    async login({email,password}){
-        return await this.account.createEmailSession(email,password);
+    async login({email, password}){
+    return await this.account.createEmailPasswordSession({ email, password });
     }
 
     async getCurrentUser() {

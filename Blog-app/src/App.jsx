@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import config from "./config/config";
 import { useDispatch } from "react-redux";
+import { Outlet } from 'react-router-dom';
 import authService from "./appWrite/auth";
 import { login, logout } from "./store/authSlice";
 import { Header, Footer } from "./components/Index";
@@ -29,7 +29,7 @@ function App() {
       <div className="w-full block">
         <Header />
         <main>
-          TODO: {/* <Outlet /> */}
+          <Outlet />
         </main>
         <Footer />
       </div>

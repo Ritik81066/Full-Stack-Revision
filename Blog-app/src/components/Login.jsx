@@ -23,8 +23,18 @@ function Login() {
     try{
       const session=await authService.login(data)
       if(session){
-        const userData=await authService.getCurrentUser()
-        if(userData) dispatch(authLogin(userData));
+        const user = await authService.getCurrentUser()
+        if(user) {
+          const plainUser = {
+            $id: user.$id,
+            $createdAt: user.$createdAt,
+            name: user.name,
+            email: user.email,
+            registration: user.registration,
+          }
+          dispatch(authLogin({ userData: plainUser }))
+        }
+
         navigate("/")
       }
     }catch(error){
